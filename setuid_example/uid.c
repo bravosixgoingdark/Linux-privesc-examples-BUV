@@ -8,7 +8,8 @@
 
 int main(int argc, char *argv[])
 {
-  setuid(0); // attempts to set the current uid of this process if allowed
+  setuid(0); // attempts to set the current uid of this process to 0 (root) if allowed
+  setgid(0); //attemps to set the current gid of this process to 0 (root) if allowed 
   struct passwd *p; // define an empty struct for the getpwuid() function  
   struct group *g; // same but for the getgrgid() function 
   gid_t gid; // groupID var  
