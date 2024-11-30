@@ -13,7 +13,7 @@ void vuln() {
 
 int main(int argc, char *argv[])
 {
-  puts("Enter your input here, do you worst.");
+  puts("enter your input here, do you worst.");
   vuln(); 
 }
 
