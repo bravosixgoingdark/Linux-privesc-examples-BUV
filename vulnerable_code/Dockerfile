@@ -1,17 +1,18 @@
 FROM ubuntu:latest
 
-RUN useradd -d /home/ctf/ -m -p ctf -s /bin/bash ctf
-RUN echo "ctf:ctf" | chpasswd
+RUN useradd -d /home/user/ -m -p user -s /bin/bash user 
+RUN echo "user:user" | chpasswd
 
-WORKDIR /home/ctf
+WORKDIR /home/user
 
 COPY vulnerable_program_static .
 COPY ynetd .
 
-RUN chmod +s /home/ctf/vulnerable_program_static
-RUN chmod +x /home/ctf/ynetd 
+RUN chmod +s /home/user/vulnerable_program_static
+RUN chmod +x /home/user/ynetd 
 
-USER ctf
+
+USER user 
 EXPOSE 1337  
 CMD ./ynetd -p 1337 "env -i ./vulnerable_program_static" 
 
