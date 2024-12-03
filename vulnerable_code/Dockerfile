@@ -10,7 +10,8 @@ COPY ynetd .
 
 RUN chmod +s /home/user/vulnerable_program_static
 RUN chmod +x /home/user/ynetd 
-
+RUN echo "BUV{5om3_1MPOR74N7_DO5pOO933N7}" > flag
+RUN chmod 600 flag 
 
 USER user 
 EXPOSE 1337  
